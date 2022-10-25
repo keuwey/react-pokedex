@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-/* type ContainerProps = {
-  bgColor: string;
-};
- */
 export const Container = styled.span`
   display: inline-block;
   padding: 5px;

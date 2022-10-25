@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import CardPokemon, { CardPokemonProps } from "../components/CardPokemon";
-import Navbar from "../components/Navbar";
-import "./Home.css";
+import NavBar from "../components/NavBar";
 import api from "../services/api";
+
+import { Title, List, Input } from "./Home.style";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [pokemonList, setPokemonList] = useState<CardPokemonProps[]>([]);
-  async function GetPokemonData() {
+  const [textoBusca, setTextoBusca] = useState("");
+
+  async function getPokemonData() {
     const { data } = await api.get("pokemon?limit=151");
 
     const dadosCompletos = await Promise.all(
@@ -21,33 +24,51 @@ function Home() {
         };
       })
     );
-    setPokemonList(dadosCompletos);
 
+    setPokemonList(dadosCompletos);
     setIsLoading(false);
   }
+
   useEffect(() => {
-    GetPokemonData();
+    getPokemonData();
   }, []);
 
   if (isLoading) {
-    return null;
+    return <p>Carregando</p>;
   }
 
   return (
     <>
-      <Navbar />
-      <h1 className="title">Encontre todos os pokémons em um só lugar</h1>
-      <div className="list">
-        {pokemonList.map((pokemon, index) => (
-          <CardPokemon
-            key={index}
-            id={pokemon.id}
-            name={pokemon.name}
-            types={pokemon.types}
-          />
-        ))}
-      </div>
+      <NavBar />
+      <Title>Encontre todos os pokémons em um só lugar</Title>
+
+      <Input
+        type="text"
+        placeholder="Buscar por NOME ou ID"
+        value={textoBusca}
+        onChange={(event) => setTextoBusca(event.target.value)}
+      />
+
+      <List>
+        {pokemonList
+          .filter(
+            (pokemon) =>
+              pokemon.name.includes(textoBusca) ||
+              String(pokemon.id) === textoBusca
+          )
+          .map((pokemon, index) => {
+            return (
+              <CardPokemon
+                key={index}
+                id={pokemon.id}
+                name={pokemon.name}
+                types={pokemon.types}
+              />
+            );
+          })}
+      </List>
     </>
   );
 }
+
 export default Home;

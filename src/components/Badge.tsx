@@ -1,4 +1,5 @@
 import { Container } from "./Badge.style";
+
 type BadgeProps = {
   name: string;
 };
@@ -10,4 +11,5 @@ function Badge(props: BadgeProps) {
     </Container>
   );
 }
+
 export default Badge;

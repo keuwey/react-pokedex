@@ -1,20 +1,29 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  & > .brand {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 31px;
-    color: #17171b;
-  }
 `;
 
-export const BtnGoBack = styled(Link)`
+type CustomLinkProps = {
+  fontSize: number;
+  lineheight: number;
+  color: string;
+};
+
+export const CustomLink = styled(Link)<CustomLinkProps>`
   font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
-  color: #747476;
+  font-size: ${(props) => props.fontSize}px;
+  line-height: ${(props) => props.lineheight}px;
+  color: ${(props) => props.color};
+`;
+
+export const TotalPokemons = styled.span`
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: ${(props) => props.color};
+  margin-right: 2rem;
 `;

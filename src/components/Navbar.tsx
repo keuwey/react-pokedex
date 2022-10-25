@@ -1,18 +1,31 @@
-import { Link } from "react-router-dom";
-// import "./Navbar.css";
-import { BtnGoBack, Nav } from "./Navbar.style";
+import { useSelector } from "react-redux";
+import { StoreState } from "../redux";
+import { Nav, CustomLink, TotalPokemons } from "./NavBar.style";
 
 type NavBarProps = {
   hasGoBack?: boolean;
 };
-function Navbar(props: NavBarProps) {
+
+function NavBar(props: NavBarProps) {
+  const totalPokemons = useSelector((state: StoreState) => state.favorite);
+
   return (
     <Nav className="nav">
-      <Link to="/" className="brand">
+      <CustomLink to="/" fontSize={24} lineheight={31} color="#17171b">
         Pokédex
-      </Link>
-      {props.hasGoBack && <BtnGoBack to="/">Voltar</BtnGoBack>}
+      </CustomLink>
+      <div>
+        <TotalPokemons>
+          Total de favoritos: {totalPokemons.length}
+        </TotalPokemons>
+        {props.hasGoBack && (
+          <CustomLink to="/" fontSize={16} lineheight={21} color="#747476">
+            Voltar
+          </CustomLink>
+        )}
+      </div>
     </Nav>
   );
 }
-export default Navbar;
+
+export default NavBar;

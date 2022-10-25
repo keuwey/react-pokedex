@@ -5,18 +5,19 @@
 }
 
 body {
-  font-size: 16px;
   font-family: sans-serif;
 }
 
 a {
   text-decoration: none;
 }
+
 .container {
-  padding: 2rem;
   max-width: 1024px;
   min-height: 100vh;
+  padding: 2rem;
   margin: 0 auto;
+
   background-image: url(./assets/Pokeball.png);
   background-repeat: no-repeat;
   background-position: right top;
