@@ -4,19 +4,19 @@ This is the recreation of the famous Pokédex that made the childhood of million
 
 ## Deploy
 
-You can see it working [here](https://keuwey.github.io/react-pokedex/)
+You can see it [working here](https://react-pokedex-virid.vercel.app)
 
 ## Instalation
 
 In order to try this project on your machine, you only have to clone this repo:
 
-```bash
+```text
 git clone https://github.com/keuwey/react-pokedex.git
 ```
 
 Once you did this, then it's just to install the project:
 
-```bash
+```text
 cd react-pokedex
 npm install
 npm run dev
