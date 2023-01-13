@@ -53,7 +53,7 @@ function Home() {
         {pokemonList
           .filter(
             (pokemon) =>
-              pokemon.name.includes(textoBusca) ||
+              pokemon.name.includes(textoBusca.toLowerCase()) ||
               String(pokemon.id) === textoBusca
           )
           .map((pokemon, index) => {
