@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { StoreState } from "../redux";
-import { Nav, CustomLink, TotalPokemons } from "./NavBar.style";
-
+import { Nav, CustomLink, TotalPokemons } from "./Navbar.style";
 type NavBarProps = {
   hasGoBack?: boolean;
 };
