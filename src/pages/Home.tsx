@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CardPokemon, { CardPokemonProps } from "../components/CardPokemon";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Navbar";
 import api from "../services/api";
 
 import { Title, List, Input } from "./Home.style";

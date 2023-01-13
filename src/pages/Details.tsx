@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Navbar";
 import Badge from "../components/Badge";
 import { CardPokemonProps } from "../components/CardPokemon";
 import api from "../services/api";
