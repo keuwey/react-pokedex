@@ -1,12 +1,10 @@
-import { useSelector } from "react-redux";
-import { StoreState } from "../redux";
-import { Nav, CustomLink, TotalPokemons } from "./Navbar.style";
-type NavBarProps = {
-  hasGoBack?: boolean;
-};
+import { useSelector } from "react-redux"
+import { StoreState } from "../redux"
+import { Nav, CustomLink, TotalPokemons } from "./Navbar.style"
+type NavBarProps = { hasGoBack?: boolean }
 
 function NavBar(props: NavBarProps) {
-  const totalPokemons = useSelector((state: StoreState) => state.favorite);
+  const totalPokemons = useSelector((state: StoreState) => state.favorite)
 
   return (
     <Nav className="nav">
@@ -24,7 +22,7 @@ function NavBar(props: NavBarProps) {
         )}
       </div>
     </Nav>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar

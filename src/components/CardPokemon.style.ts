@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Card = styled.div`
   width: 100%;
@@ -63,14 +63,14 @@ export const Card = styled.div`
   &.type--water {
     background-color: #58abf6;
   }
-`;
+`
 
 export const Number = styled.span`
   font-weight: 700;
   font-size: 12px;
   line-height: 16px;
   color: rgba(23, 23, 27, 0.6);
-`;
+`
 
 export const Title = styled.p`
   font-weight: 700;
@@ -78,7 +78,7 @@ export const Title = styled.p`
   line-height: 34px;
   color: #ffffff;
   margin-bottom: 2px;
-`;
+`
 
 export const Image = styled.img`
   max-width: 100%;
@@ -92,4 +92,4 @@ export const Image = styled.img`
     top: -20px;
     right: -5px;
   }
-`;
+`

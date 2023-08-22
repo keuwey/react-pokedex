@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.span`
   display: inline-block;
@@ -61,4 +61,4 @@ export const Container = styled.span`
   &.type--water {
     background-color: #4a90da;
   }
-`;
+`

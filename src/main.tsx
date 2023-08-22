@@ -1,11 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store } from "./redux";
+import React from "react"
+import ReactDOM from "react-dom/client"
+import { RouterProvider } from "react-router-dom"
+import { Provider } from "react-redux"
+import { store } from "./redux"
 
-import "./index.css";
-import router from "./router";
+import "./index.css"
+import router from "./router"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -15,4 +15,4 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       </section>
     </Provider>
   </React.StrictMode>
-);
+)

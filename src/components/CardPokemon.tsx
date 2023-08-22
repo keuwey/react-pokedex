@@ -1,19 +1,14 @@
-import { Link } from "react-router-dom";
-import Badge from "./Badge";
+import { Link } from "react-router-dom"
+import Badge from "./Badge"
+import { Card, Number, Title, Image } from "./CardPokemon.style"
 
-import { Card, Number, Title, Image } from "./CardPokemon.style";
-
-type PokemonTypeProps = {
-  type: {
-    name: string;
-  };
-};
+type PokemonTypeProps = { type: { name: string } }
 
 export type CardPokemonProps = {
-  id: number;
-  name: string;
-  types: Array<PokemonTypeProps>;
-};
+  id: number
+  name: string
+  types: Array<PokemonTypeProps>
+}
 
 function CardPokemon(props: CardPokemonProps) {
   return (
@@ -22,9 +17,8 @@ function CardPokemon(props: CardPokemonProps) {
         <div>
           <Number>#{String(props.id).padStart(3, "0")}</Number>
           <Title>{props.name}</Title>
-
           {props.types.map((item, index) => {
-            return <Badge key={index} name={item.type.name} />;
+            return <Badge key={index} name={item.type.name} />
           })}
         </div>
         <Image
@@ -33,7 +27,7 @@ function CardPokemon(props: CardPokemonProps) {
         />
       </Card>
     </Link>
-  );
+  )
 }
 
-export default CardPokemon;
+export default CardPokemon

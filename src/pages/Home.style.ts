@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Title = styled.h1`
   font-weight: 700;
@@ -14,7 +14,7 @@ export const Title = styled.h1`
     line-height: 40px;
     margin: 80px 0 60px;
   }
-`;
+`
 
 export const List = styled.div`
   display: grid;
@@ -29,7 +29,7 @@ export const List = styled.div`
   @media only screen and (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
   }
-`;
+`
 
 export const Input = styled.input`
   width: 100%;
@@ -37,4 +37,4 @@ export const Input = styled.input`
   color: #17171b;
   padding: 0.5rem 1rem;
   margin-bottom: 80px;
-`;
+`

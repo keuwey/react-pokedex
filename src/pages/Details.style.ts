@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.div`
   height: calc(100vh - 4rem - 40px);
@@ -11,7 +11,7 @@ export const Container = styled.div`
     height: 100%;
     flex-direction: column;
   }
-`;
+`
 
 export const Image = styled.img`
   width: 100%;
@@ -19,7 +19,7 @@ export const Image = styled.img`
   @media only screen and (max-width: 1000px) {
     max-width: 300px;
   }
-`;
+`
 
 export const Card = styled.div`
   width: 100%;
@@ -106,14 +106,14 @@ export const Card = styled.div`
     background-color: #58abf6;
     border-color: #4a90da;
   }
-`;
+`
 
 export const Number = styled.span`
   font-weight: 700;
   font-size: 24px;
   line-height: 31px;
   color: rgba(23, 23, 27, 0.6);
-`;
+`
 
 export const Title = styled.h1`
   font-weight: 700;
@@ -125,7 +125,7 @@ export const Title = styled.h1`
     font-size: 50px;
     line-height: 83px;
   }
-`;
+`
 
 export const ButtonMobile = styled.button`
   display: none;
@@ -143,7 +143,7 @@ export const ButtonMobile = styled.button`
     align-items: center;
     justify-content: center;
   }
-`;
+`
 
 export const Button = styled.button`
   border: 0;
@@ -160,7 +160,7 @@ export const Button = styled.button`
     /* font-weight: 2.5rem;
     line-height: 83px; */
   }
-`;
+`
 
 export const Label = styled.span`
   margin-top: 12px;
@@ -169,11 +169,11 @@ export const Label = styled.span`
   font-size: 24px;
   line-height: 31px;
   color: rgba(23, 23, 27, 0.6);
-`;
+`
 
 export const Value = styled.p`
   font-weight: 700;
   font-size: 36px;
   line-height: 47px;
   color: #ffffff;
-`;
+`

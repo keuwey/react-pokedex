@@ -1,69 +1,46 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
+import NavBar from "../components/Navbar"
+import Badge from "../components/Badge"
+import { CardPokemonProps } from "../components/CardPokemon"
+import api from "../services/api"
+import { StoreState } from "../redux"
+import { add, remove } from "../redux/favoriteSlice"
 
-import NavBar from "../components/Navbar";
-import Badge from "../components/Badge";
-import { CardPokemonProps } from "../components/CardPokemon";
-import api from "../services/api";
-import { StoreState } from "../redux";
-import { add, remove } from "../redux/favoriteSlice";
-
-import {
-  Container,
-  Image,
-  Card,
-  Number,
-  Title,
-  Button,
-  Label,
-  Value,
-  ButtonMobile,
-} from "./Details.style";
+import { Container, Image, Card, Number, Title, Button, Label, Value, ButtonMobile } from "./Details.style"
 
 type DetailsProps = CardPokemonProps & {
-  height: number;
-  weight: number;
-};
+  height: number
+  weight: number
+}
 
 function Details() {
-  const { id } = useParams();
-  const dispatch = useDispatch();
-  const listaPokemonsFavoritos = useSelector(
-    (state: StoreState) => state.favorite
-  );
-  const [isLoading, setIsLoading] = useState(true);
-  const [pokemonData, setPokemonData] = useState<DetailsProps>(
-    {} as DetailsProps
-  );
+  const { id } = useParams()
+  const dispatch = useDispatch()
+  const listaPokemonsFavoritos = useSelector((state: StoreState) => state.favorite)
+  const [isLoading, setIsLoading] = useState(true)
+  const [pokemonData, setPokemonData] = useState<DetailsProps>({} as DetailsProps)
 
-  function handleClickAdd() {
-    dispatch(add(id));
-  }
+  function handleClickAdd() { dispatch(add(id)) }
 
-  function handleClickRemove() {
-    dispatch(remove(id));
-  }
+  function handleClickRemove() { dispatch(remove(id)) }
 
   async function getPokemonData() {
-    const { data } = await api.get("pokemon/" + id);
+    const { data } = await api.get("pokemon/" + id)
     setPokemonData({
       id: data.id,
       name: data.name,
       types: data.types,
       height: data.height / 10,
-      weight: data.weight / 10,
-    });
-    setIsLoading(false);
+      weight: data.weight / 10
+    })
+    setIsLoading(false)
   }
 
-  useEffect(() => {
-    getPokemonData();
-  }, []);
+  useEffect(() => { getPokemonData() }, [])
 
-  if (isLoading) {
-    return <p>Carregando</p>;
-  }
+  if (isLoading) return <p>Carregando</p>
 
   return (
     <>
@@ -75,15 +52,11 @@ function Details() {
           alt={pokemonData.name}
         />
 
-        <Card
-          className={`type--${pokemonData.types[0].type.name.toLowerCase()}`}
-        >
+        <Card className={`type--${pokemonData.types[0].type.name.toLowerCase()}`}>
           <Number>#{String(id).padStart(3, "0")}</Number>
           <Title>{pokemonData.name}</Title>
 
-          {pokemonData.types.map((item, index) => {
-            return <Badge key={index} name={item.type.name} />;
-          })}
+          {pokemonData.types.map((item, index) => { return <Badge key={index} name={item.type.name} /> })}
 
           <Label>Peso</Label>
           <Value>{pokemonData.weight} kg</Value>
@@ -91,9 +64,7 @@ function Details() {
           <Label>Tamanho</Label>
           <Value>{pokemonData.height} m</Value>
 
-          {!!listaPokemonsFavoritos.find(
-            (item) => String(item) === String(id)
-          ) ? (
+          {!!listaPokemonsFavoritos.find(item => String(item) === String(id)) ? (
             <>
               <Button className="button" onClick={handleClickRemove}>
                 Remover dos favoritos
@@ -115,7 +86,7 @@ function Details() {
         </Card>
       </Container>
     </>
-  );
+  )
 }
 
-export default Details;
+export default Details
